@@ -10,28 +10,28 @@ import {dsnCN} from "../../hooks/helper";
 
 const TestimonialDetails = [
     {
-        name: "Helen Ginsberg",
-        label: "CEO of Treasure Island",
-        src: "assets/img/avatar/1.jpg",
-        description: `"The Brief team has been sincerely committed to designing great communication around our projects. Our customers love their  creative work - and so do we!"`
+        name: "Emily Brown",
+        label: "Brand Manager at Walmart",
+        src: "assets/img/avatar/a1.jpg",
+        description: `"Working with Red Nebula was seamless, the final video captured out story beautifully and exceeded every expectation from start to finish."`
     },
     {
-        name: "Helen Ginsberg",
-        label: "CEO of Treasure Island",
-        src: "assets/img/avatar/2.jpg",
-        description: `"Stage direction, music, ballet, workshops, backstage, the GTG presents the first episode of the series “Les Indes galantes en création"`
+        name: "Jason Miller",
+        label: "Creative Producer at HAECO",
+        src: "assets/img/avatar/a2.jpg",
+        description: `"The production quality was outstanding, and their ability to translate ideas into meaningful visuals felt genuinely remarkable."`
     },
     {
-        name: "Helen Ginsberg",
-        label: "CEO of Treasure Island",
-        src: "assets/img/avatar/3.jpg",
-        description: `"The Brief team has been sincerely committed to designing great communication around our projects. Our customers love their  creative work - and so do we!"`
+        name: "Linda Parker",
+        label: "Event Coordinator at Sony Music",
+        src: "assets/img/avatar/a3.jpg",
+        description: `"Their team delivered exceptional visuals that truly elevated our brand message and created a lasting impression with every viewer."`
     },
     {
-        name: "Helen Ginsberg",
-        label: "CEO of Treasure Island",
-        src: "assets/img/avatar/4.jpg",
-        description: `"Stage direction, music, ballet, workshops, backstage, the GTG presents the first episode of the series “Les Indes galantes en création"`
+        name: "Robert Wilson",
+        label: "Product Designer at Biscuitville",
+        src: "assets/img/avatar/a4.jpg",
+        description: `"They understood our vision instantly and crafted a compelling video that perfectly showcased our values and brand personality."`
     },
 
 ]

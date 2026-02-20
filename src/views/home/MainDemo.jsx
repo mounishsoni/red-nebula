@@ -1,10 +1,8 @@
 import React from "react";
 
-
-import {Container} from "react-bootstrap";
-import {faAngleRight} from "@fortawesome/free-solid-svg-icons";
-import {Helmet} from "react-helmet";
-
+import { Container } from "react-bootstrap";
+import { faAngleRight } from "@fortawesome/free-solid-svg-icons";
+import { Helmet } from "react-helmet";
 
 import SliderPortfolio from "../../components/slider-portfolio/SliderPortfolio";
 import HeroSection from "../../components/hero-section/HeroSection";
@@ -23,120 +21,96 @@ import NextPageContent from "../../components/next/NextPageContent";
 import Footer from "../../components/footer/Footer";
 import HeroSectionTow from "../../components/hero-section/HeroSectionTow";
 
-
 const MainDemo = () => {
+  return (
+    <React.Fragment>
+      <Helmet>
+        <title>Red Nebula - Video Production</title>
+      </Helmet>
 
+      {/*Start Slider Portfolio*/}
+      <SliderPortfolio tag="header" className="mb-section" />
+      {/*End Slider Portfolio*/}
 
-    return (
-        <React.Fragment>
+      {/*Start Hero Section*/}
+      <Container className="section-margin dsn-right-container">
+        <HeroSection />
+      </Container>
+      {/*End Hero Section*/}
 
-            <Helmet>
-                <title>Droow - Portfolio & Agency React Template </title>
-            </Helmet>
+      {/*Start Service Section*/}
+      <Container className="section-margin">
+        <TitleSection description="Our Services">
+          {"Professional video services".toUpperCase()}
+          <br />
+          {"tailored for you".toUpperCase()}
+        </TitleSection>
+        <ServiceOne className="text-center" col={3} colMobile={1} colGap={0} colGapTablet={30} />
+      </Container>
+      {/*End Service Section*/}
 
+      {/*Start Box Right Info*/}
+      {/* <HeroSectionTow className="section-margin text-center"/> */}
+      {/*End Box Right Info*/}
 
-            {/*Start Slider Portfolio*/}
-            <SliderPortfolio tag="header" className="mb-section"/>
-            {/*End Slider Portfolio*/}
-
-            {/*Start Hero Section*/}
-            <Container className="section-margin dsn-right-container">
-                <HeroSection/>
-            </Container>
-            {/*End Hero Section*/}
-
-
-            {/*Start Service Section*/}
-            <Container className="section-margin">
-                <TitleSection description="Our Services">
-                    New Branding Agency
-                </TitleSection>
-                <ServiceOne className="text-center" col={3} colMobile={1} colGap={0} colGapTablet={30}/>
-            </Container>
-            {/*End Service Section*/}
-
-            {/*Start Box Right Info*/}
-            <HeroSectionTow className="section-margin text-center"/>
-            {/*End Box Right Info*/}
-
-
-            {/*Start Portfolio Swiper*/}
-            <Container as={TitleSection} description="Our Work">
+      {/*Start Portfolio Swiper*/}
+      {/* <Container as={TitleSection} description="Our Work">
                 Creative Portfolio Designs
             </Container>
-            <PortfolioSwiper grabCursor/>
-            {/*End Portfolio Swiper*/}
+            <PortfolioSwiper grabCursor/> */}
+      {/*End Portfolio Swiper*/}
 
-
-            {/*Start Box Info With Image*/}
-            <BoxImageVertical src="/assets/img/project/project1/5.jpg" className="section-margin">
-                <TitleCover>Droow</TitleCover>
-                <FadeUpTrigger>
-                    {(ref) =>
-                        <DsnGrid col={1} rowGap={30} rowGapTablet={20}>
-
-                            <h2 className='title-section border-line-left' ref={ref}>
-                                Time Tag Watch.
-                            </h2>
-                            <h6 ref={ref}>
-                                Sometimes, we need to check the time, wondering when our work or meeting will finish,
-                                without getting caught by others.
-                            </h6>
-                            <p ref={ref}>
-                                To avoid your boss’s staring eye, you should not roll your eyes to check the time. The
-                                Time
-                                Tag Watch is a consummately appropriate for it. Those tags do the role of the hands of
-                                the
-                                watch. By rotating the face of the watch not the hands, it gets harder to be damaged. It
-                                provides you with experience to feel the time at the end of your finger without damaging
-                                your watch.
-                            </p>
-                            <div className="button-box" ref={ref}>
+      {/*Start Box Info With Image*/}
+      <BoxImageVertical src="/assets/img/project/project9/microsoft.jpg" className="section-margin">
+        <TitleCover>Red Nebula</TitleCover>
+        <FadeUpTrigger>
+          {(ref) => (
+            <DsnGrid col={1} rowGap={30} rowGapTablet={20}>
+              <h2 className="title-section border-line-left" ref={ref}>
+                Featured Work.
+              </h2>
+              <h6 ref={ref}>RED NEBULA produces a spot for MICROSOFT on their fight against COVID-19.</h6>
+              <p ref={ref}>
+                When the world paused, Microsoft didn’t. They leaned into the front lines, using technology to bridge the gap between crisis and solution. RED NEBULA was invited to document this
+                pivotal moment—not just as a production house, but as storytellers tasked with capturing history in the making.
+              </p>
+              {/* <div className="button-box" ref={ref}>
                                 <ButtonDefault text="Learn More" icon={faAngleRight} href="#0"/>
-                            </div>
+                            </div> */}
+            </DsnGrid>
+          )}
+        </FadeUpTrigger>
+      </BoxImageVertical>
+      {/*End  Box Info With Image*/}
 
-                        </DsnGrid>
-                    }
-                </FadeUpTrigger>
-            </BoxImageVertical>
-            {/*End  Box Info With Image*/}
-
-            {/*Start Testimonial*/}
-            <Container className="section-margin">
-                <Testimonial autoHeight loop grabCursor title="Feedback from our clients."/>
-            </Container>
-            {/*End Testimonial*/}
-
-            {/*Start Blog*/}
-            <Container className="section-margin dsn-right-container">
+      {/*Start Blog*/}
+      {/* <Container className="section-margin dsn-right-container">
                 <TitleSection description="Latest News">
                     Latest & Greatest Post
                 </TitleSection>
                 <BlogSwiper grabCursor loop autoHeight/>
-            </Container>
-            {/*End Blog*/}
+            </Container> */}
+      {/*End Blog*/}
 
-            {/*Start Brand*/}
-            <Container className="section-margin">
-                <TitleSection description="Our clients">
-                    Your successful, our <br/> reputation
-                </TitleSection>
-                <BrandClient
-                    col={3}
-                    colTablet={2}
-                    colGap={2}
-                    rowGap={2}
-                />
-            </Container>
-            {/*End Brand*/}
+      {/*Start Brand*/}
+      <Container className="section-margin">
+        <TitleSection description="Our clients">
+          Your successful, our <br /> reputation
+        </TitleSection>
+        <BrandClient col={4} colTablet={3} colMobile={2} colGap={1} rowGap={1} />
+      </Container>
+      {/*End Brand*/}
 
-            <NextPageContent className="section-margin"/>
-            <Footer/>
+      {/*Start Testimonial*/}
+      <Container className="section-margin">
+        <Testimonial autoHeight loop grabCursor title="Feedback from our clients." />
+      </Container>
+      {/*End Testimonial*/}
 
-        </React.Fragment>
-
-    );
-}
-
+      {/* <NextPageContent className="section-margin"/> */}
+      <Footer />
+    </React.Fragment>
+  );
+};
 
 export default MainDemo;
