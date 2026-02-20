@@ -4,7 +4,7 @@ import './style.scss'
 
 import {Col, Container, Row} from 'react-bootstrap';
 import ParallaxImage from "../parallax-image/ParallaxImage";
-import type {ParallaxImageProps} from "../parallax-image/ParallaxImage";
+import {ParallaxImageProps} from "../parallax-image/ParallaxImage";
 import {dsnCN} from "../../hooks/helper";
 
 

@@ -1,12 +1,11 @@
-import React, {useState, Suspense} from "react";
-import {useSelector} from "react-redux";
-import {Route, Routes} from "react-router-dom";
+import React, { useState, Suspense } from "react";
+import { useSelector } from "react-redux";
+import { Route, Routes } from "react-router-dom";
 import useEffectLocation from "../hooks/useEffectLocation";
 
-import './style.scss';
+import "./style.scss";
 
-const Scrollbar = React.lazy(() => import("smooth-scrollbar"));
-
+// Lazy loaded views
 const MainDemo = React.lazy(() => import("../views/home/MainDemo"));
 const Demo2 = React.lazy(() => import("../views/home/Demo2"));
 const Demo3 = React.lazy(() => import("../views/home/Demo3"));
@@ -23,54 +22,53 @@ const About = React.lazy(() => import("../views/About"));
 const Contact = React.lazy(() => import("../views/Contact"));
 const BlogDetails = React.lazy(() => import("../views/blog/BlogDetails"));
 
-
 const Router = () => {
+  const [transPage, setTransPage] = useState("in");
 
-    const [transPage, setTransPage] = useState("in");
-    const scrollbar: React.MutableRefObject<null | Scrollbar> = useSelector(state => state.scrollbar);
+  // Removed TypeScript type annotation: React.MutableRefObject<null | Scrollbar>
+  const scrollbar = useSelector((state) => state.scrollbar);
 
-    const location = useEffectLocation((l) => {
-        setTransPage("out");
-    })
+  const location = useEffectLocation(() => {
+    setTransPage("out");
+  });
 
-    const onAnimateEnd = () => {
-        if (transPage !== "out") return;
-        scrollbar.current?.scrollTo(0, 0, 0);
-        window.scrollTo({left: 0, top: 0});
-        setTransPage("in");
+  const onAnimateEnd = () => {
+    if (transPage !== "out") return;
+
+    // Reset scroll position on page change
+    // Added safety check for scrollbar.current
+    if (scrollbar && scrollbar.current) {
+      scrollbar.current.scrollTo(0, 0, 0);
     }
 
+    window.scrollTo({ left: 0, top: 0 });
+    setTransPage("in");
+  };
 
-    return (
+  return (
+    <div id="dsn-content" className={`dsn-transition-page dsn-animate-${transPage}`} onAnimationEnd={onAnimateEnd}>
+      <Suspense fallback={<div className="background-main h-100-v" />}>
+        <Routes location={location}>
+          <Route path="/" element={<MainDemo />} />
+          <Route path="/demo-2" element={<Demo2 />} />
+          <Route path="/demo-3" element={<Demo3 />} />
 
-        <div id="dsn-content" className={`dsn-transition-page dsn-animate-${transPage}`}
-             onAnimationEnd={onAnimateEnd}
-        >
-            <Suspense fallback={<div className="background-main h-100-v" />}>
-                <Routes location={location}>
+          <Route path="/slider" element={<SliderOne />} />
+          <Route path="/slider-2" element={<SliderTow />} />
+          <Route path="/slider-3" element={<SliderThree />} />
 
-                    <Route path="/" element={<MainDemo/>}/>
-                    <Route path="/demo-2" element={<Demo2/>}/>
-                    <Route path="/demo-3" element={<Demo3/>}/>
+          <Route path="/portfolio" element={<Work />} />
+          <Route path="/portfolio-2" element={<WorkTow />} />
+          <Route path="/portfolio/:slug" element={<ProjectDetails />} />
 
-                    <Route path="/slider" element={<SliderOne/>}/>
-                    <Route path="/slider-2" element={<SliderTow/>}/>
-                    <Route path="/slider-3" element={<SliderThree/>}/>
-
-                    <Route exact path="/portfolio" element={<Work/>}/>
-                    <Route exact path="/portfolio-2" element={<WorkTow/>}/>
-                    <Route exact path="/portfolio/:slug" element={<ProjectDetails/>}/>
-
-                    <Route exact path="/about" element={<About/>}/>
-                    <Route exact path="/contact" element={<Contact/>}/>
-                    <Route exact path="/blog-details" element={<BlogDetails/>}/>
-                    <Route exact path="*" element={<h1>Not Found</h1>}/>
-                </Routes>
-            </Suspense>
-        </div>
-
-
-    );
-}
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/blog-details" element={<BlogDetails />} />
+          <Route path="*" element={<h1>Not Found</h1>} />
+        </Routes>
+      </Suspense>
+    </div>
+  );
+};
 
 export default React.memo(Router);

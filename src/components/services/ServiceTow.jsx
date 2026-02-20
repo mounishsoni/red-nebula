@@ -3,7 +3,7 @@ import './style.scss'
 
 
 import DsnGrid from "../DsnGrid";
-import type {DsnGridProps} from "../DsnGrid";
+import {DsnGridProps} from "../DsnGrid";
 import {dsnCN} from "../../hooks/helper";
 
 const ServicesDetails = [

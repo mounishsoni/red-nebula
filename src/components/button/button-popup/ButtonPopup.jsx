@@ -1,50 +1,47 @@
-import React, {useEffect, useRef} from 'react';
-import './style.scss';
+import React, { useEffect, useRef } from "react";
+import "./style.scss";
 import "@fancyapps/ui/dist/fancybox.css";
-import {FontAwesomeIcon, FontAwesomeIconProps} from "@fortawesome/react-fontawesome";
-import {faPlay} from "@fortawesome/free-solid-svg-icons";
-import {Fancybox as NativeFancybox} from "@fancyapps/ui";
-import {dsnCN} from "../../../hooks/helper";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlay } from "@fortawesome/free-solid-svg-icons";
+import { Fancybox as NativeFancybox } from "@fancyapps/ui";
+import { dsnCN } from "../../../hooks/helper";
 
-interface ButtonPopupProps extends FontAwesomeIconProps {
-    bgColor?: 'main' | 'section' | 'theme'
-}
+// Removed ButtonPopupProps interface and FontAwesomeIconProps type import
 
-function ButtonPopup({href, className, bgColor, group, type, preload, width, height, ...restProps}: ButtonPopupProps) {
+function ButtonPopup({ href, className, bgColor = "main", group, type, preload, width, height, ...restProps }) {
+  // Removed ': ButtonPopupProps' type annotation
 
-    const target = useRef();
+  const target = useRef();
 
-    useEffect(() => {
+  useEffect(() => {
+    NativeFancybox.bind("[data-fancybox]", { parentEl: target.current });
 
-        NativeFancybox.bind("[data-fancybox]", {parentEl: target.current});
+    return () => {
+      NativeFancybox.destroy();
+    };
+  }, []);
 
-        return () => {
-            NativeFancybox.destroy();
-        };
-    }, []);
-
-    return (
-        href &&
-        <a className={dsnCN('dsn-btn-popup dsn-auto', `background-${bgColor}`, className)}
-            ref={target}
-
-           href={href}
-           data-fancybox={group || ''}
-           data-type={type || ''}
-           data-preload={preload}
-           data-width={width}
-           data-height={height}>
-
-            <FontAwesomeIcon {...restProps}  />
-
-
-        </a>
-    );
+  return (
+    href && (
+      <a
+        className={dsnCN("dsn-btn-popup dsn-auto", `background-${bgColor}`, className)}
+        ref={target}
+        href={href}
+        data-fancybox={group || ""}
+        data-type={type || ""}
+        data-preload={preload}
+        data-width={width}
+        data-height={height}
+      >
+        <FontAwesomeIcon {...restProps} />
+      </a>
+    )
+  );
 }
 
 ButtonPopup.defaultProps = {
-    bgColor: 'main',
-    icon: faPlay
-}
+  bgColor: "main",
+  icon: faPlay,
+};
 
 export default ButtonPopup;

@@ -1,51 +1,43 @@
-import React, {useLayoutEffect, useRef} from 'react';
-import Scrollbar from 'smooth-scrollbar';
-import OverscrollPlugin, {OverscrollOptions} from "smooth-scrollbar/plugins/overscroll";
+import React, { useLayoutEffect, useRef } from "react";
+import Scrollbar from "smooth-scrollbar";
+import OverscrollPlugin from "smooth-scrollbar/plugins/overscroll";
 
+// Removed SmoothScrollbarProps interface and OverscrollOptions import
 
-export interface SmoothScrollbarProps {
-    refTarget?: void,
-    height?: number | string,
-    option?: {
-        damping?: number | 0.1,
-        thumbMinSize?: number | 20,
-        renderByPixels?: boolean,
-        alwaysShowTracks?: boolean,
-        continuousScrolling?: boolean,
-        plugins?: Object | OverscrollOptions
+function SmoothScrollbar({ children, tag: Tag = "div", refTarget, height, option = {}, ...restProps }) {
+  // Removed ': SmoothScrollbarProps' type annotation
+  const scrollbar = useRef();
+
+  useLayoutEffect(() => {
+    if (!scrollbar.current) return;
+
+    // Initialize plugins if specified in options
+    if (option?.plugins) {
+      Scrollbar.use(OverscrollPlugin);
     }
 
-}
+    const scroll = Scrollbar.init(scrollbar.current, option);
 
-function SmoothScrollbar({children, tag: Tag = "div", refTarget, height, option, ...restProps}: SmoothScrollbarProps) {
-    const scrollbar = useRef();
-    useLayoutEffect(() => {
-        if (option.plugins)
-            Scrollbar.use(OverscrollPlugin);
+    // Pass the scroll instance back to parent if refTarget callback exists
+    if (typeof refTarget === "function") {
+      refTarget(scroll, scrollbar.current);
+    }
 
-        const scroll = Scrollbar.init(scrollbar.current, option);
-        if (refTarget)
-            refTarget(scroll, scrollbar.current);
+    return () => {
+      if (scroll) scroll.destroy();
+    };
+  }, [option, refTarget]);
 
-
-        return () => {
-            scroll.destroy()
-        }
-
-    }, []);// eslint-disable-line react-hooks/exhaustive-deps
-
-
-    return (
-        <Tag {...restProps} ref={scrollbar} style={{overflow: "hidden", height: height}}>
-            {children}
-        </Tag>
-    );
+  return (
+    <Tag {...restProps} ref={scrollbar} style={{ overflow: "hidden", height: height }}>
+      {children}
+    </Tag>
+  );
 }
 
 SmoothScrollbar.defaultProps = {
-    height: "100vh",
-    option: {}
-}
-
+  height: "100vh",
+  option: {},
+};
 
 export default SmoothScrollbar;

@@ -1,53 +1,49 @@
-import React, {MutableRefObject,  useEffect, useRef, useState} from 'react';
+import React, { useEffect, useRef, useState } from "react";
 import Scrollbar from "smooth-scrollbar";
-import {ScrollbarOptions} from "smooth-scrollbar/interfaces";
-import {ScrollTrigger} from "gsap/ScrollTrigger";
-import {useDispatch} from "react-redux";
-import {setOptionScroll, setScrollbar} from "../features/smooth-scrollbar/smoothScrollbarSlice";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useDispatch } from "react-redux";
+import { setOptionScroll, setScrollbar } from "../features/smooth-scrollbar/smoothScrollbarSlice";
 
+// Removed type UseSmoothScrollbarHook and ScrollbarOptions import
 
-type UseSmoothScrollbarHook = [React.RefObject<Scrollbar>, string];
+const useSmoothScrollbar = (ref, option) => {
+  // Removed ': React.RefObject<HTMLElement>' and ': UseSmoothScrollbarHook'
 
-const useSmoothScrollbar = (
-    ref: React.RefObject<HTMLElement>, option?: Partial<ScrollbarOptions>
-): UseSmoothScrollbarHook => {
+  const scrollbar = useRef(null);
+  const [classNameScroll, setClassNameScroll] = useState("");
+  const dispatch = useDispatch();
 
-    /**
-     *
-     * @type {React.MutableRefObject<null|Scrollbar>}
-     */
-    const scrollbar = useRef(null);
-    const [classNameScroll, setClassNameScroll] = useState("");
-    const dispatch = useDispatch();
+  useEffect(() => {
+    if (!ref.current) return;
 
+    // Initialize smooth-scrollbar
+    scrollbar.current = Scrollbar.init(ref.current, option);
+    setClassNameScroll("dsn-scrollbar");
 
-    useEffect(() => {
+    // Tell GSAP ScrollTrigger to use this container as the scroller
+    ScrollTrigger.defaults({
+      scroller: ref.current,
+    });
 
-        if (!ref.current)
-            return;
+    // Sync ScrollTrigger with smooth-scrollbar updates
+    scrollbar.current.addListener(() => ScrollTrigger.refresh());
 
-        scrollbar.current = Scrollbar.init(ref.current, option);
-        setClassNameScroll("dsn-scrollbar");
-        ScrollTrigger.defaults({
-            scroller: ref.current
-        });
-        scrollbar.current.addListener(() => ScrollTrigger.refresh());
-        dispatch(setScrollbar(scrollbar.current));
-        dispatch(setOptionScroll(option));
+    // Update Redux state
+    dispatch(setScrollbar(scrollbar.current));
+    dispatch(setOptionScroll(option));
 
-        return () => {
-            scrollbar.current?.destroy();
-            setClassNameScroll("");
-            ScrollTrigger.defaults({
-                scroller: null
-            });
-        }
+    return () => {
+      if (scrollbar.current) {
+        scrollbar.current.destroy();
+      }
+      setClassNameScroll("");
+      ScrollTrigger.defaults({
+        scroller: window, // Reset scroller to window on unmount
+      });
+    };
+  }, [ref, option, dispatch]); // Added dependencies for hook stability
 
-    }, [ref])
-
-    return [scrollbar, classNameScroll];
-
-}
-
+  return [scrollbar, classNameScroll];
+};
 
 export default useSmoothScrollbar;

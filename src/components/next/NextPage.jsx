@@ -1,30 +1,28 @@
-import React from 'react'
-import { Container } from 'react-bootstrap';
+import React from "react";
+import { Container } from "react-bootstrap";
 
-import './style.scss'
+import "./style.scss";
 import NavLink from "../button/NavLink";
-import {BsPrefixRefForwardingComponent} from "react-bootstrap/helpers";
-import {NavLinkProps} from "react-bootstrap/NavLink";
-import {dsnCN} from "../../hooks/helper";
+import { dsnCN } from "../../hooks/helper";
 
-interface NextPageProps extends BsPrefixRefForwardingComponent<'a', NavLinkProps>{
-    text?:string
-}
+// Removed NextPageProps interface
+// Removed Type-only imports (BsPrefixRefForwardingComponent, NavLinkProps)
 
-function NextPage({ className , children ,text, ...restProps }:NextPageProps) {
+function NextPage({ className, children, text, ...restProps }) {
+  // Removed ': NextPageProps' type annotation
 
-    return (
-        <div className={dsnCN('next-page section-padding' , className)} >
-            <Container>
-                <div className="c-wrap">
-                    <NavLink {...restProps}>
-                        <span className="hiring">{children}</span>
-                        <span className="career">{text}</span>
-                    </NavLink>
-                </div>
-            </Container>
+  return (
+    <div className={dsnCN("next-page section-padding", className)}>
+      <Container>
+        <div className="c-wrap">
+          <NavLink {...restProps}>
+            <span className="hiring">{children}</span>
+            <span className="career">{text}</span>
+          </NavLink>
         </div>
-    )
+      </Container>
+    </div>
+  );
 }
 
-export default NextPage
+export default NextPage;
