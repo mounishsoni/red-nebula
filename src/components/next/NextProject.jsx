@@ -62,7 +62,7 @@ function NextProject({height, attrContent, overlay, heroContent, to, className})
                 <Container fluid  {...attrContent} className="hero-content" ref={content}>
                     {title &&
                     <Link to={to || getPortfolioLink(heroContent)}><h1 className="title-heading">{title}</h1></Link>}
-                    <p className="mt-30 h6">Next Project</p>
+                    <p className="mt-30 h6">Next Portfolio</p>
                 </Container>
             }
 
