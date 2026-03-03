@@ -10,14 +10,24 @@ import {dsnCN} from "../../hooks/helper";
 
 const TestimonialDetails = [
     {
-        authorName: "Brandon Barbello",
-        label: "Vivalnk Inc | Google IO",
-        description: `Dave & his team at Blacksmith Agency were incredible partners at a critical time for our company. Day in & day out, they were there for us every step of the way delivering results for us & our high profile corporate partner.`
+        authorName: "Emily Brown",
+        label: "Brand Manager at Walmart",
+        description: `"Working with Red Nebula was seamless, the final video captured out story beautifully and exceeded every expectation from start to finish."`
     },
     {
-        authorName: "Helen Ginsberg",
-        label: "CEO of Treasure",
-        description: `Dave & his team at Blacksmith Agency were incredible partners at a critical time for our company. Day in & day out, they were there for us every step of the way delivering results for us & our high profile corporate partner.`
+        authorName: "Jason Miller",
+        label: "Creative Producer at HAECO",
+        description: `"The production quality was outstanding, and their ability to translate ideas into meaningful visuals felt genuinely remarkable."`
+    },
+    {
+        authorName: "Linda Parker",
+        label: "Event Coordinator at Sony Music",
+        description: `"Their team delivered exceptional visuals that truly elevated our brand message and created a lasting impression with every viewer."`
+    },
+    {
+        authorName: "Robert Wilson",
+        label: "Product Designer at Biscuitville",
+        description: `"They understood our vision instantly and crafted a compelling video that perfectly showcased our values and brand personality."`
     },
 ]
 

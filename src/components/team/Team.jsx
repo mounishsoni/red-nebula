@@ -10,19 +10,19 @@ import {Pagination, SwiperOptions} from "swiper";
 
 const TeamDetails = [
     {
-        src: "/assets/img/team/1.png",
-        title: "Blake Hamilton",
-        subTitle: "Project manager",
-    },
-    {
-        src: "/assets/img/team/2.png",
-        title: "John Doe",
-        subTitle: "Engineer",
-    },
-    {
-        src: "/assets/img/team/3.png",
-        title: "Ira Mulanax",
+        src: "/assets/img/team/brett.jpg",
+        title: "Brett Mullen",
         subTitle: "Founder",
+    },
+    {
+        src: "/assets/img/team/brett.jpg",
+        title: "Blake Hamilton",
+        subTitle: "Video Producer",
+    },
+    {
+        src: "/assets/img/team/brett.jpg",
+        title: "Ira Mulanax",
+        subTitle: "Video Editor",
     }
 
 ]
