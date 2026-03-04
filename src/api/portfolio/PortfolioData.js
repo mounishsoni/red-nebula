@@ -1,10 +1,10 @@
 import TimeTagWatch from "../../views/portfolio/TimeTagWatch";
-import UnderArmour from "../../views/portfolio/UnderArmour";
-import ReStyling from "../../views/portfolio/ReStyling";
-import ToastReel from "../../views/portfolio/ToastReel";
-import WhatIfGold from "../../views/portfolio/WhatIfGold";
-import NileKabutha from "../../views/portfolio/NileKabutha";
-import SleepWalker from "../../views/portfolio/SleepWalker";
+import CommercialTV from "../../views/portfolio/CommercialTV";
+import AthleticsApparel from "../../views/portfolio/AthleticsApparel";
+import TourismLifestyle from "../../views/portfolio/TourismLifestyle";
+import CorporateWeb from "../../views/portfolio/CorporateWeb";
+import MusicVideosFilm from "../../views/portfolio/MusicVideosFilm";
+import DocumentariesEvents from "../../views/portfolio/DocumentariesEvents";
 import NovaraConic from "../../views/portfolio/NovaraConic";
 import BastianBux from "../../views/portfolio/BastianBux";
 
@@ -12,26 +12,26 @@ const data = [
   {
     id: 1,
     title: "Commercial / TV",
-    slug: "under-armour",
+    slug: "commercial-tv",
     src: "/assets/img/project/project2/commercial-tv-portfolio-banner.png",
     srcSlider: "/assets/img/project/project2/commercial-tv-portfolio-banner.png",
     category: ["Portfolio"],
     description: "",
     overlay: 2,
     textButtonLabel: "View Portfolio",
-    component: (props) => <UnderArmour {...props} />,
+    component: (props) => <CommercialTV {...props} />,
   },
   {
     id: 2,
     title: "Athletics / Apparel",
-    slug: "re-styling",
+    slug: "athletics-apparel",
     src: "/assets/img/project/project3/athletics-apparel-portfolio-banner.png",
     srcSlider: "/assets/img/project/project3/athletics-apparel-portfolio-banner.png",
     category: ["Portfolio"],
     description: "",
     overlay: 2,
     textButtonLabel: "View Portfolio",
-    component: (props) => <ReStyling {...props} />,
+    component: (props) => <AthleticsApparel {...props} />,
   },
   // {
   //   id: 3,
@@ -51,50 +51,50 @@ const data = [
   {
     id: 3,
     title: "Tourism / Lifestyle",
-    slug: "toast-2019-reel",
+    slug: "tourism-lifestyle",
     category: ["Portfolio"],
     src: "/assets/img/project/project4/tourism-lifestyle-portfolio-banner.png",
     srcSlider: "/assets/img/project/project4/tourism-lifestyle-portfolio-banner.png",
     description: "",
     overlay: 2,
     textButtonLabel: "View Portfolio",
-    component: (props) => <ToastReel {...props} />,
+    component: (props) => <TourismLifestyle {...props} />,
   },
   {
     id: 4,
     title: "Corporate / Web",
-    slug: "what-if-gold",
+    slug: "corporate-web",
     src: "/assets/img/project/project5/corporate-web-portfolio-banner.png",
     srcSlider: "/assets/img/project/project5/corporate-web-portfolio-banner.png",
     category: ["Portfolio"],
     description: "",
     overlay: 2,
     textButtonLabel: "View Portfolio",
-    component: (props) => <WhatIfGold {...props} />,
+    component: (props) => <CorporateWeb {...props} />,
   },
   {
     id: 5,
     title: "Music Videos / Film",
-    slug: "nile-kabutha",
+    slug: "music-videos-film",
     category: ["Portfolio"],
     src: "/assets/img/project/project6/music-videos-film-portfolio-banner.png",
     srcSlider: "/assets/img/project/project6/music-videos-film-portfolio-banner.png",
     description: "",
     overlay: 2,
     textButtonLabel: "View Portfolio",
-    component: (props) => <NileKabutha {...props} />,
+    component: (props) => <MusicVideosFilm {...props} />,
   },
   {
     id: 6,
     title: "Documentaries / Events",
-    slug: "sleep-walker",
+    slug: "documentaries-events",
     category: ["Portfolio"],
     src: "/assets/img/project/sleep-walker/documentaries-events-portfolio-banner.png",
     srcSlider: "/assets/img/project/sleep-walker/documentaries-events-portfolio-banner.png",
     description: "",
     overlay: 2,
     textButtonLabel: "View Portfolio",
-    component: (props) => <SleepWalker {...props} />,
+    component: (props) => <DocumentariesEvents {...props} />,
   },
   // {
   //   id: 7,
