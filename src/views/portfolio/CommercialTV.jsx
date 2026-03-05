@@ -8,9 +8,12 @@ import NextProject from "../../components/next/NextProject";
 import HeaderFull from "../../components/header/HeaderFull";
 import ButtonPopup from "../../components/button/button-popup/ButtonPopup";
 import { Helmet } from "react-helmet";
+import { getPortfolioVideoData } from "../../api/portfolio/PortfolioVideoData";
 
 const CommercialTV = ({ data }) => {
+    console.log("CommercialTV data: ", data);
   const nextData = getPortfolioItem(8);
+  const dataPortfolio = getPortfolioVideoData();
 
   return (
     <React.Fragment>
@@ -25,7 +28,7 @@ const CommercialTV = ({ data }) => {
       {/*End Header Half*/}
 
       {/*Start Parallax Image*/}
-      <ParallaxImage src="/assets/img/project/project7/2.jpg" caption="Caption #1" triggerHook="top" animationActive={false} overlay={2} parallax={{ scale: 1 }} parallaxFrom={{ scale: 1.3 }} />
+      {/* <ParallaxImage src="/assets/img/project/project7/2.jpg" caption="Caption #1" triggerHook="top" animationActive={false} overlay={2} parallax={{ scale: 1 }} parallaxFrom={{ scale: 1.3 }} />
 
       <ParallaxImage src="/assets/img/project/project7/3.jpg" caption="Caption #2" triggerHook="top" animationActive={false} overlay={2} parallax={{ scale: 1 }} parallaxFrom={{ scale: 1.3 }} />
 
@@ -40,16 +43,18 @@ const CommercialTV = ({ data }) => {
         overlay={2}
         parallax={{ scale: 1 }}
         parallaxFrom={{ scale: 1.3 }}
-      />
+      /> */}
       {/*End Parallax Image*/}
 
       {/*Start Box Info Center Content*/}
-      <div className="p-relative section-margin v-dark-head text-center">
-        <ParallaxImage src="/assets/img/project/project1/7.jpg" overlay={4} />
-        <Container className="v-middle z-index-1">
-          <ButtonPopup href="http://media.w3.org/2010/05/sintel/trailer.mp4" />
-        </Container>
-      </div>
+      {dataPortfolio.map((item, index) => (
+        <div className="p-relative section-margin v-dark-head text-center">
+          <ParallaxImage src={item.src} overlay={item.overlay} />
+          <Container className="v-middle z-index-1">
+            <ButtonPopup href={item.href} />
+          </Container>
+        </div>
+      ))}
       {/*End Box Info Center Content*/}
 
       <NextProject heroContent={nextData} overlay={nextData.overlay} />

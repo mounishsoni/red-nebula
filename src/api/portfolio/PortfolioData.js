@@ -1,12 +1,6 @@
+import React from "react";
+import PortfolioVideoPage from "../../views/portfolio/PortfolioVideoPage";
 import TimeTagWatch from "../../views/portfolio/TimeTagWatch";
-import CommercialTV from "../../views/portfolio/CommercialTV";
-import AthleticsApparel from "../../views/portfolio/AthleticsApparel";
-import TourismLifestyle from "../../views/portfolio/TourismLifestyle";
-import CorporateWeb from "../../views/portfolio/CorporateWeb";
-import MusicVideosFilm from "../../views/portfolio/MusicVideosFilm";
-import DocumentariesEvents from "../../views/portfolio/DocumentariesEvents";
-import NovaraConic from "../../views/portfolio/NovaraConic";
-import BastianBux from "../../views/portfolio/BastianBux";
 
 const data = [
   {
@@ -19,7 +13,7 @@ const data = [
     description: "",
     overlay: 2,
     textButtonLabel: "View Portfolio",
-    component: (props) => <CommercialTV {...props} />,
+    component: (props) => <PortfolioVideoPage {...props} nextId={2} />,
   },
   {
     id: 2,
@@ -31,34 +25,19 @@ const data = [
     description: "",
     overlay: 2,
     textButtonLabel: "View Portfolio",
-    component: (props) => <AthleticsApparel {...props} />,
+    component: (props) => <PortfolioVideoPage {...props} nextId={3} />,
   },
-  // {
-  //   id: 3,
-  //   title: "Tourism / Lifestyle",
-  //   slug: "toast-2019-reel",
-  //   category: ["Portfolio"],
-  //   src: "https://theme.dsngrid.com/video/droow.mp4",
-  //   video: {
-  //     poster: "/assets/img/project/project4/1.jpg",
-  //     loop: true,
-  //   },
-  //   description: "We are thrilled to share our new reel with you all! Special thanks to all of our talented friends.",
-  //   overlay: 2,
-  //   textButtonLabel: "View Case",
-  //   component: (props) => <ToastReel {...props} />,
-  // },
   {
     id: 3,
     title: "Tourism / Lifestyle",
     slug: "tourism-lifestyle",
-    category: ["Portfolio"],
     src: "/assets/img/project/project4/tourism-lifestyle-portfolio-banner.png",
     srcSlider: "/assets/img/project/project4/tourism-lifestyle-portfolio-banner.png",
+    category: ["Portfolio"],
     description: "",
     overlay: 2,
     textButtonLabel: "View Portfolio",
-    component: (props) => <TourismLifestyle {...props} />,
+    component: (props) => <PortfolioVideoPage {...props} nextId={4} />,
   },
   {
     id: 4,
@@ -70,31 +49,31 @@ const data = [
     description: "",
     overlay: 2,
     textButtonLabel: "View Portfolio",
-    component: (props) => <CorporateWeb {...props} />,
+    component: (props) => <PortfolioVideoPage {...props} nextId={5} />,
   },
   {
     id: 5,
     title: "Music Videos / Film",
     slug: "music-videos-film",
-    category: ["Portfolio"],
     src: "/assets/img/project/project6/music-videos-film-portfolio-banner.png",
     srcSlider: "/assets/img/project/project6/music-videos-film-portfolio-banner.png",
+    category: ["Portfolio"],
     description: "",
     overlay: 2,
     textButtonLabel: "View Portfolio",
-    component: (props) => <MusicVideosFilm {...props} />,
+    component: (props) => <PortfolioVideoPage {...props} nextId={6} />,
   },
   {
     id: 6,
     title: "Documentaries / Events",
     slug: "documentaries-events",
-    category: ["Portfolio"],
     src: "/assets/img/project/sleep-walker/documentaries-events-portfolio-banner.png",
     srcSlider: "/assets/img/project/sleep-walker/documentaries-events-portfolio-banner.png",
+    category: ["Portfolio"],
     description: "",
     overlay: 2,
     textButtonLabel: "View Portfolio",
-    component: (props) => <DocumentariesEvents {...props} />,
+    component: (props) => <PortfolioVideoPage {...props} nextId={7} />,
   },
   // {
   //   id: 7,
@@ -121,7 +100,7 @@ const data = [
   //   component: (props) => <BastianBux {...props} />,
   // },
   {
-    id: 8,
+    id: 7,
     title: "Our Film Gear",
     slug: "rental-gear",
     category: ["Rental"],
@@ -143,8 +122,8 @@ export const getPortfolioItem = (value, whereName = "id") => {
     return null;
   });
 };
+
 export const getPortfolioLink = (item) => {
   if (item) return item.slug && "/portfolio/" + item.slug;
-
   return "";
 };
