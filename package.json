@@ -1,7 +1,6 @@
 {
-  "name": "droow",
+  "name": "red-nebula",
   "version": "1.0.0",
-  "homepage": "https://droow-react.dsngrid.com/",
   "private": true,
   "dependencies": {
     "@emailjs/browser": "^3.5.0",

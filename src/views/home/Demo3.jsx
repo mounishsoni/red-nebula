@@ -36,7 +36,7 @@ function Demo3(props) {
     return (
         <React.Fragment>
             <Helmet>
-                <title>Droow - Portfolio & Agency React Template </title>
+                <title>Red nebula - Portfolio </title>
             </Helmet>
 
             <HeaderFull heroContent={heroContent} overlay={6}/>
@@ -69,7 +69,7 @@ function Demo3(props) {
 
             {/*Start Box Info With Image*/}
             <BoxImageVertical src="/assets/img/project/project1/7.jpg" className="section-margin">
-                <TitleCover>Droow</TitleCover>
+                <TitleCover>Red nebula</TitleCover>
                 <FadeUpTrigger>
                     {(ref) =>
                         <DsnGrid col={1} rowGap={30} rowGapTablet={20}>

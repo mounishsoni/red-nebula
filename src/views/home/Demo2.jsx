@@ -30,7 +30,7 @@ function Demo2(props) {
     return (
         <>
             <Helmet>
-                <title>Droow - Portfolio & Agency React Template </title>
+                <title>Red nebula - Portfolio </title>
             </Helmet>
             <HeaderNormal className="background-section" description={heroContent.description}>
                 {heroContent.title}
@@ -77,7 +77,7 @@ function Demo2(props) {
 
             {/*Start Box Info With Image*/}
             <BoxImageVertical src="/assets/img/project/project1/5.jpg" className="section-margin">
-                <TitleCover>Droow</TitleCover>
+                <TitleCover>Red nebula</TitleCover>
                 <FadeUpTrigger tag={DsnGrid} col={1} rowGap={30} rowGapTablet={20}>
                     <h2 className='title-section border-line-left'>
                         Time Tag Watch.
